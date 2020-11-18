@@ -8,8 +8,8 @@
 <script src="resources/test-helpers.sub.js"></script>
 <script src="/common/get-host-info.sub.js"></script>
 <script>
-// Tests of updating a service worker. This file contains non-cors cases only.
-// The cases of cors: true are in update-bytecheck-cors-import.https.html.
+// Tests of updating a service worker. This file contains cors cases only.
+// The cases of cors: false are in update-bytecheck.https.html.
 
 /*
  * @param bolean cors
@@ -21,10 +21,10 @@
  *   Decide the content of the imported script, where 'default' is for constant
  *   content while 'time' is for time-variant content.
  */
-const settings = [{cors: false, main: 'default', imported: 'default'},
-                  {cors: false, main: 'default', imported: 'time'   },
-                  {cors: false, main: 'time',    imported: 'default'},
-                  {cors: false, main: 'time',    imported: 'time'   }];
+const settings = [{cors: true,  main: 'default', imported: 'default'},
+                  {cors: true,  main: 'default', imported: 'time'   },
+                  {cors: true,  main: 'time',    imported: 'default'},
+                  {cors: true,  main: 'time',    imported: 'time'   }];
 
 const host_info = get_host_info();
 settings.forEach(({cors, main, imported}) => {
